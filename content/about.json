@@ -1,0 +1,47 @@
+{
+  "title_en": "Trusted by thousands of patients across Sétif",
+  "title_fr": "La confiance de milliers de patients à Sétif",
+  "title_ar": "ثقة آلاف المرضى في سطيف",
+  "description_en": "We combine the latest imaging technology with a team of experienced specialists dedicated to accurate diagnostics and patient comfort.",
+  "description_fr": "Nous associons les dernières technologies d'imagerie à une équipe de spécialistes expérimentés, engagés pour un diagnostic précis et le confort du patient.",
+  "description_ar": "نجمع بين أحدث تقنيات التصوير وفريق من المختصين ذوي الخبرة، ملتزمين بدقة التشخيص وراحة المريض.",
+  "image": "/public/about_image.jpg",
+  "badge_number": "2009",
+  "badge_text_en": "Est. in Sétif",
+  "badge_text_fr": "Fondé à Sétif",
+  "badge_text_ar": "تأسس في سطيف",
+  "features": [
+    {
+      "title_en": "Advanced Equipment",
+      "title_fr": "Équipements de pointe",
+      "title_ar": "تجهيزات متطورة",
+      "description_en": "3T MRI, 128-slice CT and full digital radiology suite.",
+      "description_fr": "IRM 3T, Scanner 128 coupes et suite radiologique entièrement numérique.",
+      "description_ar": "رنين مغناطيسي 3 تيسلا، أشعة مقطعية 128 شريحة ومجموعة أشعة رقمية كاملة."
+    },
+    {
+      "title_en": "Expert Radiologists",
+      "title_fr": "Radiologues experts",
+      "title_ar": "أطباء أشعة متخصصون",
+      "description_en": "Board-certified specialists with over 15 years experience.",
+      "description_fr": "Spécialistes certifiés avec plus de 15 ans d'expérience.",
+      "description_ar": "متخصصون معتمدون بخبرة تتجاوز 15 عاماً."
+    },
+    {
+      "title_en": "Fast Turnaround",
+      "title_fr": "Résultats rapides",
+      "title_ar": "نتائج سريعة",
+      "description_en": "Most results delivered same day or within 24 hours.",
+      "description_fr": "La plupart des résultats sont disponibles le jour même ou sous 24 heures.",
+      "description_ar": "معظم النتائج تُسلَّم في نفس اليوم أو خلال 24 ساعة."
+    },
+    {
+      "title_en": "Patient Comfort",
+      "title_fr": "Confort du patient",
+      "title_ar": "راحة المريض",
+      "description_en": "Calm, welcoming environment designed around you.",
+      "description_fr": "Un environnement calme et accueillant, conçu pour vous.",
+      "description_ar": "بيئة هادئة وترحيبية مصممة حول احتياجاتك."
+    }
+  ]
+}

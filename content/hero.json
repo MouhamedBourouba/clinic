@@ -1,0 +1,35 @@
+{
+  "eyebrow_fr": "Des soins attentionnés · Sétif",
+  "eyebrow_ar": "رعاية متميزة · سطيف",
+  "description_en": "Centre d'imagerie Médicale Es-Salem offers state-of-the-art diagnostic imaging — MRI, CT Scan, Ultrasound, Mammography and more — open seven days a week.",
+  "description_fr": "Le Centre d'imagerie Médicale Es-Salem propose des examens d'imagerie diagnostique de pointe — IRM, Scanner, Échographie, Mammographie et plus — ouvert sept jours sur sept.",
+  "title_line2_en": "delivered with care",
+  "title_line1_en": "Precision imaging,",
+  "description_ar": "يقدم مركز التصوير الطبي السلام خدمات التشخيص بالتصوير الحديث — الرنين المغناطيسي، الأشعة المقطعية، الإيكوغرافيا، تصوير الثدي والمزيد — مفتوح سبعة أيام في الأسبوع.",
+  "title_line2_fr": "avec bienveillance",
+  "title_line1_fr": "Imagerie de précision,",
+  "hero_image": "/public/uploads/hero_image.avif",
+  "title_line2_ar": "بعناية واحترافية",
+  "title_line1_ar": "تصوير طبي دقيق،",
+  "stats": [
+    {
+      "value": "15+",
+      "label_en": "Years of Experience",
+      "label_fr": "Années d'expérience",
+      "label_ar": "سنوات من الخبرة"
+    },
+    {
+      "value": "50k+",
+      "label_en": "Patients Served",
+      "label_fr": "Patients pris en charge",
+      "label_ar": "مريض تمت خدمتهم"
+    },
+    {
+      "value": "7",
+      "label_en": "Days a Week",
+      "label_fr": "Jours par semaine",
+      "label_ar": "أيام في الأسبوع"
+    }
+  ],
+  "eyebrow_en": "Compassionate Care · Sétif"
+}

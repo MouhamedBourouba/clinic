@@ -1,0 +1,82 @@
+{
+  "items": [
+    {
+      "title_en": "MRI — Magnetic Resonance Imaging",
+      "title_fr": "IRM — Imagerie par Résonance Magnétique",
+      "title_ar": "التصوير بالرنين المغناطيسي",
+      "order": 1,
+      "description_en": "High-resolution soft-tissue imaging without radiation. Used for brain, spine, joints, abdomen and more.",
+      "description_fr": "Imagerie haute résolution des tissus mous sans rayonnement. Utilisée pour le cerveau, la colonne, les articulations et l'abdomen.",
+      "description_ar": "تصوير عالي الدقة للأنسجة الرخوة دون إشعاع. يُستخدم للدماغ والعمود الفقري والمفاصل والبطن.",
+      "image": "/public/uploads/irm.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    },
+    {
+      "title_en": "CT Scan",
+      "title_fr": "Scanner — Tomodensitométrie",
+      "title_ar": "التصوير المقطعي",
+      "order": 2,
+      "description_en": "Fast, detailed cross-sectional imaging of bones, vessels and organs. Essential for trauma and oncology workups.",
+      "description_fr": "Imagerie en coupe rapide et détaillée des os, vaisseaux et organes. Indispensable pour les urgences et l'oncologie.",
+      "description_ar": "تصوير مقطعي سريع ومفصّل للعظام والأوعية والأعضاء. ضروري لتقييم الإصابات والأورام.",
+      "image": "/public/uploads/scanner.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    },
+    {
+      "title_en": "Ultrasound",
+      "title_fr": "Échographie",
+      "title_ar": "الموجات فوق الصوتية",
+      "order": 3,
+      "description_en": "Real-time imaging using sound waves. Safe during pregnancy and ideal for abdominal, pelvic and vascular examinations.",
+      "description_fr": "Imagerie en temps réel par ultrasons. Sans danger pendant la grossesse, idéale pour l'abdomen, le pelvis et les vaisseaux.",
+      "description_ar": "تصوير فوري بالموجات الصوتية. آمن أثناء الحمل ومثالي لفحوصات البطن والحوض والأوعية الدموية.",
+      "image": "/public/uploads/echographie.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    },
+    {
+      "title_en": "Mammography",
+      "title_fr": "Mammographie",
+      "title_ar": "تصوير الثدي",
+      "order": 4,
+      "description_en": "Dedicated breast X-ray for early detection of breast cancer. Recommended annually for women over 40.",
+      "description_fr": "Radiographie dédiée du sein pour la détection précoce du cancer. Recommandée annuellement pour les femmes de plus de 40 ans.",
+      "description_ar": "أشعة سينية مخصصة للثدي للكشف المبكر عن سرطان الثدي. يُوصى بها سنوياً للنساء فوق سن 40.",
+      "image": "/public/uploads/mammographie.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    },
+    {
+      "title_en": "Dental Panoramic X-ray",
+      "title_fr": "Panoramique Dentaire",
+      "title_ar": "الأشعة البانورامية للأسنان",
+      "order": 5,
+      "description_en": "Full-arch dental X-ray capturing all teeth, jaw and surrounding structures in a single image.",
+      "description_fr": "Radiographie dentaire complète capturant toutes les dents, la mâchoire et les structures environnantes en une seule image.",
+      "description_ar": "أشعة سينية كاملة للأسنان تلتقط جميع الأسنان والفك والهياكل المحيطة في صورة واحدة.",
+      "image": "/public/uploads/panoramique.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    },
+    {
+      "title_en": "Standard Radiology",
+      "title_fr": "Radiologie Standard",
+      "title_ar": "الأشعة السينية التقليدية",
+      "order": 6,
+      "description_en": "Conventional X-ray for bones, chest and lungs. Fast, widely available and the first step in most diagnostic pathways.",
+      "description_fr": "Radiographie conventionnelle pour les os, le thorax et les poumons. Rapide, disponible et première étape du diagnostic.",
+      "description_ar": "أشعة سينية تقليدية للعظام والصدر والرئتين. سريعة ومتاحة وتمثّل الخطوة الأولى في معظم مسارات التشخيص.",
+      "image": "/public/uploads/radiologie.jpg",
+      "body_en": "",
+      "body_fr": "",
+      "body_ar": ""
+    }
+  ]
+}

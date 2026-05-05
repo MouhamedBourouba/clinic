@@ -1,0 +1,274 @@
+# ============================================================
+# Centre d'imagerie Médicale Es-Salem
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/public/uploads"
+
+# ============================================================
+# COLLECTIONS
+# ============================================================
+collections:
+
+  # ----------------------------------------------------------
+  # 1. SITE SETTINGS
+  # ----------------------------------------------------------
+  - name: settings
+    label: "Site Settings"
+    files:
+
+      - name: general
+        label: "General Settings"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Clinic Name",          name: clinic_name, widget: string,  default: "Centre d'imagerie Médicale Es-Salem" }
+          - { label: "Tagline (EN)",          name: tagline_en,  widget: string,  default: "Precision imaging, delivered with care" }
+          - { label: "Tagline (FR)",          name: tagline_fr,  widget: string,  default: "Imagerie de précision, avec bienveillance" }
+          - { label: "Tagline (AR)",          name: tagline_ar,  widget: string,  default: "تصوير دقيق بعناية فائقة" }
+          - { label: "Phone",                 name: phone,       widget: string,  default: "+213 36 84 00 00" }
+          - { label: "Email",                 name: email,       widget: string,  default: "contact@es-salem.dz" }
+          - { label: "Address (EN)",          name: address_en,  widget: text,    default: "Rue des Frères Bouadou, Sétif 19000, Algeria" }
+          - { label: "Address (FR)",          name: address_fr,  widget: text,    default: "Rue des Frères Bouadou, Sétif 19000, Algérie" }
+          - { label: "Address (AR)",          name: address_ar,  widget: text,    default: "شارع الإخوة بوعدو، سطيف 19000، الجزائر" }
+          - label: "Google Maps Embed URL"
+            name: map_url
+            widget: string
+            hint: "Paste the src URL from Google Maps > Share > Embed a map"
+            default: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101509.77!2d5.4!3d36.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f315b9e32fe7c5%3A0x400b05e6b4f6550!2sS%C3%A9tif!5e0!3m2!1sen!2sdz!4v1"
+
+  # ----------------------------------------------------------
+  # 2. HERO SECTION
+  # ----------------------------------------------------------
+  - name: hero
+    label: "Hero Section"
+    files:
+
+      - name: hero_content
+        label: "Hero Content"
+        file: "content/hero.json"
+        fields:
+          - { label: "Eyebrow (EN)",         name: eyebrow_en,     widget: string, default: "Compassionate Care · Sétif" }
+          - { label: "Eyebrow (FR)",         name: eyebrow_fr,     widget: string, default: "Des soins attentionnés · Sétif" }
+          - { label: "Eyebrow (AR)",         name: eyebrow_ar,     widget: string, default: "رعاية متميزة · سطيف" }
+          - { label: "Title line 1 (EN)",    name: title_line1_en, widget: string, default: "Precision imaging," }
+          - { label: "Title line 1 (FR)",    name: title_line1_fr, widget: string, default: "Imagerie de précision," }
+          - { label: "Title line 1 (AR)",    name: title_line1_ar, widget: string, default: "تصوير طبي دقيق،" }
+          - { label: "Title line 2 (EN)",    name: title_line2_en, widget: string, default: "delivered with care" }
+          - { label: "Title line 2 (FR)",    name: title_line2_fr, widget: string, default: "avec bienveillance" }
+          - { label: "Title line 2 (AR)",    name: title_line2_ar, widget: string, default: "بعناية واحترافية" }
+          - { label: "Description (EN)",     name: description_en, widget: text }
+          - { label: "Description (FR)",     name: description_fr, widget: text }
+          - { label: "Description (AR)",     name: description_ar, widget: text }
+          - { label: "Hero Image",           name: hero_image,     widget: image,  default: "/public/hero_image.jpg" }
+          - label: "Stats"
+            name: stats
+            widget: list
+            allow_add: false
+            fields:
+              - { label: "Value",       name: value,    widget: string }
+              - { label: "Label (EN)",  name: label_en, widget: string }
+              - { label: "Label (FR)",  name: label_fr, widget: string }
+              - { label: "Label (AR)",  name: label_ar, widget: string }
+
+  # ----------------------------------------------------------
+  # 3. ABOUT SECTION
+  # ----------------------------------------------------------
+  - name: about
+    label: "About Section"
+    files:
+
+      - name: about_content
+        label: "About Content"
+        file: "content/about.json"
+        fields:
+          - { label: "Section Title (EN)",    name: title_en,       widget: string }
+          - { label: "Section Title (FR)",    name: title_fr,       widget: string }
+          - { label: "Section Title (AR)",    name: title_ar,       widget: string }
+          - { label: "Description (EN)",      name: description_en, widget: text }
+          - { label: "Description (FR)",      name: description_fr, widget: text }
+          - { label: "Description (AR)",      name: description_ar, widget: text }
+          - { label: "About Image",           name: image,          widget: image, default: "/public/about_image.jpg" }
+          - { label: "Badge Number / Year",   name: badge_number,   widget: string, default: "2009" }
+          - { label: "Badge Text (EN)",       name: badge_text_en,  widget: string, default: "Est. in Sétif" }
+          - { label: "Badge Text (FR)",       name: badge_text_fr,  widget: string, default: "Fondé à Sétif" }
+          - { label: "Badge Text (AR)",       name: badge_text_ar,  widget: string, default: "تأسس في سطيف" }
+          - label: "Why Choose Us — Feature Cards"
+            name: features
+            widget: list
+            label_singular: "Feature"
+            max: 6
+            fields:
+              - { label: "Title (EN)",       name: title_en,       widget: string }
+              - { label: "Title (FR)",       name: title_fr,       widget: string }
+              - { label: "Title (AR)",       name: title_ar,       widget: string }
+              - { label: "Description (EN)", name: description_en, widget: text }
+              - { label: "Description (FR)", name: description_fr, widget: text }
+              - { label: "Description (AR)", name: description_ar, widget: text }
+
+  # ----------------------------------------------------------
+  # 4. SERVICES  (single file, list of items)
+  # ----------------------------------------------------------
+  - name: services
+    label: "Services"
+    files:
+
+      - name: services_list
+        label: "Liste des Services"
+        file: "content/services.json"
+        fields:
+          - label: "Services"
+            name: items
+            widget: list
+            label_singular: "Service"
+            fields:
+              - { label: "Service Name (EN)",      name: title_en,       widget: string }
+              - { label: "Service Name (FR)",      name: title_fr,       widget: string }
+              - { label: "Service Name (AR)",      name: title_ar,       widget: string }
+              - { label: "Order",                  name: order,          widget: number, default: 1 }
+              - { label: "Short Description (EN)", name: description_en, widget: text }
+              - { label: "Short Description (FR)", name: description_fr, widget: text }
+              - { label: "Short Description (AR)", name: description_ar, widget: text }
+              - label: "Thumbnail Image"
+                name: image
+                widget: image
+                hint: "Recommended: 800×600 px"
+              - { label: "Full Description (EN)", name: body_en, widget: markdown, required: false }
+              - { label: "Full Description (FR)", name: body_fr, widget: markdown, required: false }
+              - { label: "Full Description (AR)", name: body_ar, widget: markdown, required: false }
+
+  # ----------------------------------------------------------
+  # 5. WORKING HOURS
+  # ----------------------------------------------------------
+  - name: hours
+    label: "Working Hours"
+    files:
+
+      - name: hours_schedule
+        label: "Weekly Schedule"
+        file: "content/hours.json"
+        fields:
+          - label: "Schedule"
+            name: schedule
+            widget: list
+            allow_add: false
+            min: 7
+            max: 7
+            label_singular: "Day"
+            fields:
+              - { label: "Day (EN)",  name: day_en,  widget: string }
+              - { label: "Day (FR)",  name: day_fr,  widget: string }
+              - { label: "Day (AR)",  name: day_ar,  widget: string }
+              - { label: "Opens",     name: open,    widget: string, hint: "24h format, e.g. 08:00" }
+              - { label: "Closes",    name: close,   widget: string, hint: "24h format, e.g. 20:00" }
+              - label: "Closed?"
+                name: closed
+                widget: boolean
+                default: false
+
+  # ----------------------------------------------------------
+  # 6. FAQ
+  # ----------------------------------------------------------
+  - name: faq
+    label: "FAQ"
+    files:
+
+      - name: faq_items
+        label: "FAQ Questions"
+        file: "content/faq.json"
+        fields:
+          - { label: "Section Title (EN)",       name: title_en,       widget: string, default: "Common Questions" }
+          - { label: "Section Title (FR)",       name: title_fr,       widget: string, default: "Questions Fréquentes" }
+          - { label: "Section Title (AR)",       name: title_ar,       widget: string, default: "الأسئلة الشائعة" }
+          - { label: "Section Description (EN)", name: description_en, widget: text }
+          - { label: "Section Description (FR)", name: description_fr, widget: text }
+          - { label: "Section Description (AR)", name: description_ar, widget: text }
+          - label: "Questions"
+            name: questions
+            widget: list
+            label_singular: "Question"
+            fields:
+              - { label: "Question (EN)", name: q_en, widget: string }
+              - { label: "Question (FR)", name: q_fr, widget: string }
+              - { label: "Question (AR)", name: q_ar, widget: string }
+              - { label: "Answer (EN)",   name: a_en, widget: text }
+              - { label: "Answer (FR)",   name: a_fr, widget: text }
+              - { label: "Answer (AR)",   name: a_ar, widget: text }
+
+  # ----------------------------------------------------------
+  # 7. TEAM MEMBERS  (single file, list of items)
+  # ----------------------------------------------------------
+  - name: team
+    label: "Team Members"
+    files:
+
+      - name: team_list
+        label: "Liste des Membres"
+        file: "content/team.json"
+        fields:
+          - label: "Membres"
+            name: items
+            widget: list
+            label_singular: "Membre"
+            fields:
+              - { label: "Full Name",           name: name,    widget: string }
+              - { label: "Order",               name: order,   widget: number, default: 1 }
+              - { label: "Title / Role (EN)",   name: role_en, widget: string, hint: "e.g. Radiologist" }
+              - { label: "Title / Role (FR)",   name: role_fr, widget: string, hint: "e.g. Radiologue" }
+              - { label: "Title / Role (AR)",   name: role_ar, widget: string, hint: "e.g. طبيب أشعة" }
+              - { label: "Photo",               name: photo,   widget: image,  required: false }
+              - { label: "Bio (EN)",            name: bio_en,  widget: text,   required: false }
+              - { label: "Bio (FR)",            name: bio_fr,  widget: text,   required: false }
+              - { label: "Bio (AR)",            name: bio_ar,  widget: text,   required: false }
+
+  # ----------------------------------------------------------
+  # 8. CONTACT PAGE
+  # ----------------------------------------------------------
+  - name: contact
+    label: "Contact Page"
+    files:
+
+      - name: contact_page
+        label: "Contact Page Content"
+        file: "content/contact.json"
+        fields:
+          - { label: "Section Title (EN)",  name: title_en,    widget: string, default: "Book Your Appointment" }
+          - { label: "Section Title (FR)",  name: title_fr,    widget: string, default: "Prenez Rendez-vous" }
+          - { label: "Section Title (AR)",  name: title_ar,    widget: string, default: "احجز موعدك" }
+          - { label: "Subtitle (EN)",       name: subtitle_en, widget: text }
+          - { label: "Subtitle (FR)",       name: subtitle_fr, widget: text }
+          - { label: "Subtitle (AR)",       name: subtitle_ar, widget: text }
+          - label: "Form endpoint URL"
+            name: form_action
+            widget: string
+            hint: "Netlify Forms: leave blank. Formspree: https://formspree.io/f/xxxxx"
+            required: false
+
+  # ----------------------------------------------------------
+  # 9. FOOTER
+  # ----------------------------------------------------------
+  - name: footer
+    label: "Footer"
+    files:
+
+      - name: footer_content
+        label: "Footer Content"
+        file: "content/footer.json"
+        fields:
+          - { label: "Description (EN)", name: description_en, widget: text }
+          - { label: "Description (FR)", name: description_fr, widget: text }
+          - { label: "Description (AR)", name: description_ar, widget: text }
+          - label: "Footer Links"
+            name: links
+            widget: list
+            label_singular: "Link"
+            fields:
+              - { label: "Label (EN)", name: label_en, widget: string }
+              - { label: "Label (FR)", name: label_fr, widget: string }
+              - { label: "Label (AR)", name: label_ar, widget: string }
+              - { label: "URL",        name: url,      widget: string }

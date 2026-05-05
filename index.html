@@ -1,0 +1,2825 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/public/favicon.ico" />
+  <title>Centre d'imagerie Médicale Es-Salem</title>
+  <meta name="description"
+    content="Advanced medical imaging and radiology services — MRI, CT Scan, Ultrasound, Mammography and more. Open 7 days a week in Sétif." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TOKENS
+    ============================================================ */
+    :root {
+      --ink: #0B1320;
+      --ink-mid: #2E3E55;
+      --ink-soft: #6B7C93;
+      --paper: #FAF9F6;
+      --paper-2: #F2EFE9;
+      --paper-3: #E8E4DC;
+      --teal: #1A7F74;
+      --teal-dark: #125C53;
+      --teal-pale: #EAF4F3;
+      --gold: #B89354;
+      --gold-pale: #F5EDD8;
+      --white: #FFFFFF;
+      --r-sm: 0.75rem;
+      --r-md: 1.25rem;
+      --r-lg: 2rem;
+      --r-xl: 3rem;
+      --r-full: 9999px;
+      --shadow-sm: 0 1px 3px rgba(11, 19, 32, .06);
+      --shadow-md: 0 4px 16px rgba(11, 19, 32, .08);
+      --shadow-lg: 0 12px 40px rgba(11, 19, 32, .12);
+      --shadow-xl: 0 24px 64px rgba(11, 19, 32, .16);
+      --font-head: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-ar: 'Noto Naskh Arabic', 'Amiri', serif;
+    }
+
+    /* ============================================================
+       RTL SUPPORT
+    ============================================================ */
+    [dir="rtl"] {
+      font-family: var(--font-ar), var(--font-body);
+    }
+
+    [dir="rtl"] .hero-content,
+    [dir="rtl"] .section-label,
+    [dir="rtl"] .about-grid,
+    [dir="rtl"] .services-header,
+    [dir="rtl"] .hours-layout,
+    [dir="rtl"] .faq-layout,
+    [dir="rtl"] .contact-grid,
+    [dir="rtl"] .footer-inner,
+    [dir="rtl"] .team-header {
+      direction: rtl;
+    }
+
+    [dir="rtl"] .feature-item:hover {
+      transform: translateX(-4px);
+    }
+
+    [dir="rtl"] .about-badge {
+      right: auto;
+      left: -1.5rem;
+    }
+
+    [dir="rtl"] .navbar-links a::after {
+      transform-origin: right;
+    }
+
+    [dir="rtl"] .hours-table thead th,
+    [dir="rtl"] .hours-table tbody td {
+      text-align: right;
+    }
+
+    [dir="rtl"] .today-pill {
+      margin-left: 0;
+      margin-right: .5rem;
+    }
+
+    [dir="rtl"] .team-card-social {
+      flex-direction: row-reverse;
+    }
+
+    @media (max-width: 640px) {
+      [dir="rtl"] .about-badge {
+        left: 0;
+        right: auto;
+      }
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes grain {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      10% {
+        transform: translate(-2%, -3%);
+      }
+
+      30% {
+        transform: translate(2%, -1%);
+      }
+
+      50% {
+        transform: translate(-1%, 2%);
+      }
+
+      70% {
+        transform: translate(3%, 1%);
+      }
+
+      90% {
+        transform: translate(-1%, -2%);
+      }
+    }
+
+    @keyframes shimmer {
+      from {
+        background-position: -200% center;
+      }
+
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       LANGUAGE SWITCHER
+    ============================================================ */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-full);
+      padding: .25rem;
+    }
+
+    .lang-btn {
+      padding: .3rem .65rem;
+      border-radius: var(--r-full);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--ink-soft);
+      transition: all .2s;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover {
+      color: var(--teal);
+    }
+
+    .lang-btn.active {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    .navbar-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 1.5rem;
+      transition: padding .3s;
+    }
+
+    .navbar-wrapper.scrolled {
+      padding: .75rem 1.5rem;
+    }
+
+    .navbar {
+      max-width: 84rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 249, 246, .88);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      border: 1px solid rgba(11, 19, 32, .08);
+      border-radius: var(--r-full);
+      padding: .625rem 1rem .625rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .3s;
+    }
+
+    .navbar-wrapper.scrolled .navbar {
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar-logo {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: .02em;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .navbar-logo-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: inline-block;
+      position: relative;
+      top: -4px;
+    }
+
+    .navbar-links {
+      display: none;
+      gap: 2.5rem;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      letter-spacing: .01em;
+    }
+
+    @media (min-width: 768px) {
+      .navbar-links {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .navbar-links a {
+      position: relative;
+      transition: color .2s;
+      padding-bottom: 2px;
+    }
+
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s;
+    }
+
+    .navbar-links a:hover,
+    .navbar-links a.active {
+      color: var(--teal);
+    }
+
+    .navbar-links a:hover::after,
+    .navbar-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      background: var(--teal);
+      color: var(--white);
+      padding: .625rem 1.25rem;
+      border-radius: var(--r-full);
+      font-size: .875rem;
+      font-weight: 500;
+      transition: background .2s, transform .1s;
+      letter-spacing: .01em;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-dark);
+    }
+
+    .nav-cta:active {
+      transform: scale(.97);
+    }
+
+    .mobile-toggle {
+      display: flex;
+      align-items: center;
+      gap: .375rem;
+      padding: .5rem .875rem;
+      border-radius: var(--r-full);
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    @media (min-width: 768px) {
+      .mobile-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--paper);
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.16, 1, .3, 1);
+      padding: 5rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer a {
+      padding: 1rem 1.25rem;
+      border-radius: var(--r-md);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      border: 1px solid transparent;
+      transition: all .15s;
+    }
+
+    .mobile-drawer a:hover {
+      background: var(--teal-pale);
+      color: var(--teal);
+      border-color: var(--paper-3);
+    }
+
+    .mobile-drawer-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--paper-2);
+      border: 1px solid var(--paper-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+
+    .mobile-lang-row {
+      display: flex;
+      gap: .5rem;
+      padding: .75rem 1.25rem;
+      border-top: 1px solid var(--paper-3);
+      margin-top: .5rem;
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      position: relative;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: .35;
+      animation: grain 8s steps(2) infinite;
+      pointer-events: none;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(135deg,
+          rgba(11, 19, 32, .82) 0%,
+          rgba(11, 19, 32, .55) 45%,
+          rgba(26, 127, 116, .2) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 84rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: calc(100svh - 8rem);
+    }
+
+    [dir="rtl"] .hero-content {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .625rem;
+      color: var(--gold);
+      font-size: .8125rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      opacity: 0;
+      animation: fadeUp .6s .2s ease-out forwards;
+    }
+
+    .hero-eyebrow-line {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+      max-width: 18ch;
+      opacity: 0;
+      animation: fadeUp .7s .35s ease-out forwards;
+    }
+
+    [dir="rtl"] .hero-title {
+      font-family: var(--font-ar);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: rgba(255, 255, 255, .65);
+    }
+
+    .hero-desc {
+      font-size: clamp(.9375rem, 1.5vw, 1.125rem);
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.75;
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp .7s .5s ease-out forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .7s .65s ease-out forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .875rem 2rem;
+      border-radius: var(--r-full);
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 500;
+      font-size: .9375rem;
+      letter-spacing: .01em;
+      transition: background .2s, transform .15s;
+      box-shadow: 0 8px 24px rgba(26, 127, 116, .35);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .875rem 2rem;
+      border-radius: var(--r-full);
+      border: 1px solid rgba(255, 255, 255, .25);
+      color: var(--white);
+      font-weight: 500;
+      font-size: .9375rem;
+      letter-spacing: .01em;
+      transition: border-color .2s, background .2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .hero-stats {
+      position: relative;
+      z-index: 10;
+      background: rgba(250, 249, 246, .06);
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      backdrop-filter: blur(12px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 84rem;
+      margin: 0 auto;
+      width: 100%;
+      opacity: 0;
+      animation: fadeUp .6s .8s ease-out forwards;
+    }
+
+    .hero-stat {
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .hero-stat:last-child {
+      border-right: none;
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-head);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: .375rem;
+    }
+
+    .hero-stat-label {
+      font-size: .8125rem;
+      color: rgba(255, 255, 255, .5);
+      letter-spacing: .05em;
+    }
+
+    /* ============================================================
+       SECTION CHROME
+    ============================================================ */
+    .section {
+      padding: 7rem 0;
+    }
+
+    .section-inner {
+      max-width: 84rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: .625rem;
+      margin-bottom: .75rem;
+    }
+
+    [dir="rtl"] .section-label {
+      flex-direction: row-reverse;
+    }
+
+    .section-label-dash {
+      width: 2rem;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .section-label-text {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.25rem, 4vw, 3.5rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    [dir="rtl"] .section-title {
+      font-family: var(--font-ar);
+    }
+
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      max-width: 42ch;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--paper-3);
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--paper-2);
+    }
+
+    .about-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--teal);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-badge-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .about-badge-text {
+      font-size: .8125rem;
+      opacity: .8;
+      margin-top: .25rem;
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      border-radius: var(--r-md);
+      background: var(--paper);
+      border: 1px solid var(--paper-3);
+      transition: box-shadow .25s, transform .25s;
+    }
+
+    .feature-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    .feature-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      border-radius: .75rem;
+      background: var(--teal-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+    }
+
+    .feature-body h4 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: .25rem;
+    }
+
+    .feature-body p {
+      font-size: .9rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services {
+      background: var(--paper);
+    }
+
+    .services-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .services-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .services-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--paper-3);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .35s, transform .35s;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-6px);
+    }
+
+    .service-card-thumb {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--paper-2);
+      position: relative;
+    }
+
+    .service-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .service-card:hover .service-card-thumb img {
+      transform: scale(1.05);
+    }
+
+    .service-card-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11, 19, 32, .5), transparent 60%);
+      opacity: 0;
+      transition: opacity .35s;
+    }
+
+    .service-card:hover .service-card-thumb-overlay {
+      opacity: 1;
+    }
+
+    .service-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card-num {
+      font-family: var(--font-head);
+      font-size: .75rem;
+      color: var(--teal);
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+
+    .service-card-title {
+      font-family: var(--font-head);
+      font-size: 1.375rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .625rem;
+      line-height: 1.25;
+      transition: color .2s;
+    }
+
+    [dir="rtl"] .service-card-title {
+      font-family: var(--font-ar);
+    }
+
+    .service-card:hover .service-card-title {
+      color: var(--teal);
+    }
+
+    .service-card-desc {
+      font-size: .9rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .service-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .375rem;
+      margin-top: 1.25rem;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--teal);
+      transition: gap .2s;
+    }
+
+    .service-card:hover .service-card-link {
+      gap: .625rem;
+    }
+
+    /* ============================================================
+       TEAM
+    ============================================================ */
+    #team {
+      background: var(--white);
+    }
+
+    .team-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .team-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .team-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .team-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: box-shadow .35s, transform .35s;
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-5px);
+    }
+
+    .team-card-photo {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--paper-2);
+    }
+
+    .team-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .6s ease;
+    }
+
+    .team-card:hover .team-card-photo img {
+      transform: scale(1.04);
+    }
+
+    /* Subtle gradient at the bottom of photo */
+    .team-card-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(11, 19, 32, .45), transparent);
+      pointer-events: none;
+    }
+
+    /* Role pill overlaid on photo */
+    .team-card-role-pill {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 2;
+      background: rgba(250, 249, 246, .92);
+      backdrop-filter: blur(8px);
+      border-radius: var(--r-full);
+      padding: .375rem 1rem;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: var(--shadow-sm);
+      transition: background .2s;
+    }
+
+    .team-card:hover .team-card-role-pill {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    .team-card-body {
+      padding: 1.375rem 1.5rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .team-card-name {
+      font-family: var(--font-head);
+      font-size: 1.3125rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: .625rem;
+      transition: color .2s;
+    }
+
+    [dir="rtl"] .team-card-name {
+      font-family: var(--font-ar);
+    }
+
+    .team-card:hover .team-card-name {
+      color: var(--teal);
+    }
+
+    .team-card-bio {
+      font-size: .875rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Gold accent line at top */
+    .team-card::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--gold) 100%);
+      opacity: 0;
+      transition: opacity .35s;
+    }
+
+    .team-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Placeholder when no photo */
+    .team-card-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--teal-pale), var(--paper-2));
+    }
+
+    .team-card-photo-placeholder svg {
+      width: 64px;
+      height: 64px;
+      color: var(--teal);
+      opacity: .35;
+    }
+
+    /* ============================================================
+       HOURS
+    ============================================================ */
+    #hours {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    #hours .section-title {
+      color: var(--white);
+    }
+
+    #hours .section-subtitle {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    #hours .section-label-dash {
+      background: var(--gold);
+    }
+
+    #hours .section-label-text {
+      color: var(--gold);
+    }
+
+    .hours-layout {
+      display: grid;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .hours-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hours-table-wrap {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours-table thead th {
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, .06);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .45);
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .hours-table tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      transition: background .15s;
+    }
+
+    .hours-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .hours-table tbody tr:hover {
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .hours-table tbody tr.today {
+      background: rgba(26, 127, 116, .25);
+      border-color: rgba(26, 127, 116, .3);
+    }
+
+    .hours-table tbody tr.today td {
+      color: #7ECFC9;
+    }
+
+    .hours-table tbody td {
+      padding: 1rem 1.5rem;
+      font-size: .9375rem;
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .hours-table tbody td:nth-child(2),
+    .hours-table tbody td:nth-child(3) {
+      font-family: 'Courier New', monospace;
+      font-size: .875rem;
+      letter-spacing: .08em;
+    }
+
+    .today-pill {
+      display: inline-block;
+      margin-left: .5rem;
+      background: var(--teal);
+      color: var(--white);
+      font-size: .625rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .125rem .5rem;
+      border-radius: var(--r-full);
+      vertical-align: middle;
+    }
+
+    .hours-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hours-info-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: var(--r-md);
+      padding: 1.5rem;
+      transition: border-color .2s;
+    }
+
+    .hours-info-card:hover {
+      border-color: rgba(26, 127, 116, .4);
+    }
+
+    .hours-info-card h4 {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .625rem;
+    }
+
+    .hours-info-card p {
+      font-size: .9375rem;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.65;
+    }
+
+    .hours-info-card a {
+      color: var(--teal);
+      transition: opacity .2s;
+    }
+
+    .hours-info-card a:hover {
+      opacity: .75;
+    }
+
+    .hours-ticker-wrap {
+      overflow: hidden;
+      padding: 2rem 0 0;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+
+    .hours-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 20s linear infinite;
+    }
+
+    .ticker-service {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 2rem;
+      white-space: nowrap;
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .3);
+      font-weight: 500;
+    }
+
+    .ticker-service-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    #faq {
+      background: var(--white);
+    }
+
+    .faq-layout {
+      display: grid;
+      gap: 5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .faq-layout {
+        grid-template-columns: 2fr 3fr;
+      }
+    }
+
+    .faq-sticky {
+      < !-- position: sticky;
+      -->top: 8rem;
+      height: fit-content;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--paper-3);
+      overflow: hidden;
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--paper-3);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      text-align: left;
+      transition: color .2s;
+    }
+
+    [dir="rtl"] .faq-question {
+      text-align: right;
+    }
+
+    .faq-question:hover {
+      color: var(--teal);
+    }
+
+    .faq-question-text {
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: inherit;
+      line-height: 1.45;
+      flex: 1;
+      transition: color .2s;
+    }
+
+    .faq-item.open .faq-question-text {
+      color: var(--teal);
+    }
+
+    .faq-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 1px solid var(--paper-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-soft);
+      transition: all .25s;
+    }
+
+    .faq-item.open .faq-icon {
+      border-color: var(--teal);
+      background: var(--teal-pale);
+      color: var(--teal);
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+    }
+
+    .faq-answer-text {
+      padding-bottom: 1.5rem;
+      font-size: .9375rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact {
+      background: var(--paper);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 5fr 7fr;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      flex-shrink: 0;
+      background: var(--teal-pale);
+      border-radius: .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon svg {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+    }
+
+    .contact-info-item h4 {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: .25rem;
+    }
+
+    .contact-info-item p,
+    .contact-info-item a {
+      font-size: .9375rem;
+      color: var(--ink);
+      line-height: 1.6;
+      transition: color .2s;
+    }
+
+    .contact-info-item a:hover {
+      color: var(--teal);
+    }
+
+    .map-wrap {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--paper-3);
+      margin-top: 2rem;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-title {
+      font-family: var(--font-head);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    .form-subtitle {
+      font-size: .9rem;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .375rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-label {
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      letter-spacing: .02em;
+    }
+
+    .form-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-optional {
+      font-size: .75rem;
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: .75rem 1rem;
+      border-radius: .625rem;
+      border: 1px solid var(--paper-3);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: .9375rem;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .form-input::placeholder {
+      color: var(--ink-soft);
+      opacity: .6;
+    }
+
+    .form-input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26, 127, 116, .12);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: .875rem;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: .625rem;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      transition: background .2s, transform .1s;
+      margin-top: .5rem;
+    }
+
+    .form-submit:hover {
+      background: var(--teal-dark);
+    }
+
+    .form-submit:active {
+      transform: scale(.98);
+    }
+
+    .form-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: var(--white);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      display: none;
+    }
+
+    .form-submit.loading .spinner {
+      display: block;
+    }
+
+    .form-submit.loading .btn-text {
+      display: none;
+    }
+
+    .form-success {
+      padding: 1rem;
+      border-radius: .625rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #15803d;
+      font-size: .9rem;
+      display: none;
+    }
+
+    .form-error {
+      padding: 1rem;
+      border-radius: .625rem;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      font-size: .9rem;
+      display: none;
+    }
+
+    .form-success.show,
+    .form-error.show {
+      display: block;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--ink);
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 84rem;
+      margin: 0 auto;
+      display: grid;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: .875rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .footer-logo-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: inline-block;
+      position: relative;
+      top: -3px;
+    }
+
+    .footer-desc {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .4);
+      line-height: 1.7;
+      max-width: 28ch;
+    }
+
+    .footer-col h5 {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .4);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+    }
+
+    .footer-links a {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .6);
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 84rem;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: .8125rem;
+      color: rgba(255, 255, 255, .3);
+    }
+
+    /* ============================================================
+       MISC
+    ============================================================ */
+    section[id] {
+      scroll-margin-top: 5rem;
+    }
+
+    @media (max-width: 640px) {
+      .about-badge {
+        right: 0;
+        bottom: -1rem;
+      }
+
+      [dir="rtl"] .about-badge {
+        left: 0;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <div class="navbar-wrapper" id="navbar">
+    <nav class="navbar">
+      <a href="#hero" class="navbar-logo">
+        Es-Salem<span class="navbar-logo-dot"></span>
+      </a>
+
+      <div class="navbar-links" id="nav-links">
+        <a href="#about" data-nav="about">About</a>
+        <a href="#services" data-nav="services">Services</a>
+        <a href="#team" data-nav="team">Team</a>
+        <a href="#hours" data-nav="hours">Hours</a>
+        <a href="#faq" data-nav="faq">FAQ</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </div>
+
+      <div class="navbar-right">
+        <div class="lang-switcher" id="lang-switcher-desktop">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="ar">AR</button>
+        </div>
+        <a href="#contact" class="nav-cta" id="nav-cta-btn">Book Appointment</a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="7" y2="7" />
+            <line x1="4" x2="20" y1="17" y2="17" />
+          </svg>
+          <span id="menu-label">Menu</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+    <a href="#about" data-nav="about">About</a>
+    <a href="#services" data-nav="services">Services</a>
+    <a href="#team" data-nav="team">Team</a>
+    <a href="#hours" data-nav="hours">Hours</a>
+    <a href="#faq" data-nav="faq">FAQ</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+    <div class="mobile-lang-row">
+      <div class="lang-switcher" id="lang-switcher-mobile">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="/public/uploads/hero_image.avif" alt="Es-Salem Medical Imaging Centre" fetchpriority="high" />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        <span id="hero-eyebrow">Compassionate Care · Sétif</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span id="hero-title-line1">Precision imaging,</span><br />
+        <em id="hero-title-line2">delivered with care</em>
+      </h1>
+
+      <p class="hero-desc" id="hero-description">
+        Centre d'imagerie Médicale Es-Salem offers state-of-the-art diagnostic imaging — MRI, CT Scan, Ultrasound,
+        Mammography and more — open seven days a week.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary" id="hero-cta-book">
+          Book an Appointment
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#services" class="btn-ghost" id="hero-cta-services">
+          Our Services
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats" id="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value" id="stat-0-value">15+</div>
+        <div class="hero-stat-label" id="stat-0-label">Years of Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value" id="stat-1-value">50k+</div>
+        <div class="hero-stat-label" id="stat-1-label">Patients Served</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value" id="stat-2-value">7</div>
+        <div class="hero-stat-label" id="stat-2-label">Days a Week</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div class="about-grid">
+
+        <div class="about-visual reveal">
+          <div class="about-img-main">
+            <img src="/public/about_image.jpg" alt="Medical Imaging Technology" loading="lazy" />
+          </div>
+          <div class="about-badge">
+            <div class="about-badge-num" id="about-badge-num">2009</div>
+            <div class="about-badge-text" id="about-badge-text">Est. in Sétif</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="section-label">
+            <span class="section-label-dash"></span>
+            <span class="section-label-text" id="label-why-choose">Why Choose Us</span>
+          </div>
+          <h2 class="section-title" id="about-title">
+            Trusted by thousands of patients across Sétif
+          </h2>
+          <p class="section-subtitle" id="about-description">
+            We combine the latest imaging technology with a team of experienced specialists dedicated to accurate
+            diagnostics and patient comfort.
+          </p>
+          <div class="features-list" id="features-list"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       SERVICES
+  ============================================================ -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <div class="services-header reveal">
+        <div>
+          <div class="section-label">
+            <span class="section-label-dash"></span>
+            <span class="section-label-text" id="label-our-services">Our Services</span>
+          </div>
+          <h2 class="section-title" id="services-title">Medical Imaging Areas</h2>
+          <p class="section-subtitle" id="services-subtitle">
+            Comprehensive diagnostic imaging using state-of-the-art equipment.
+          </p>
+        </div>
+        <a href="#contact" class="btn-primary" style="white-space:nowrap; align-self:flex-end;" id="services-cta-btn">
+          Book a Scan
+        </a>
+      </div>
+      <div class="services-grid" id="services-grid"></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       TEAM
+  ============================================================ -->
+  <section id="team" class="section">
+    <div class="section-inner">
+      <div class="team-header reveal">
+        <div>
+          <div class="section-label">
+            <span class="section-label-dash"></span>
+            <span class="section-label-text" id="label-our-team">Our Team</span>
+          </div>
+          <h2 class="section-title" id="team-title">Meet the Specialists</h2>
+          <p class="section-subtitle" id="team-subtitle">
+            Experienced radiologists and medical professionals committed to your health.
+          </p>
+        </div>
+      </div>
+      <div class="team-grid" id="team-grid"></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       HOURS
+  ============================================================ -->
+  <section id="hours" class="section">
+    <div class="section-inner">
+      <div class="hours-layout">
+
+        <div class="reveal">
+          <div class="section-label">
+            <span class="section-label-dash"></span>
+            <span class="section-label-text" id="label-opening-hours">Opening Hours</span>
+          </div>
+          <h2 class="section-title" id="hours-title">We're open<br />every day</h2>
+          <p class="section-subtitle" id="hours-subtitle">
+            No appointment needed for some services. Walk-ins welcome during opening hours.
+          </p>
+          <div class="hours-info" style="margin-top:3rem;">
+            <div class="hours-info-card">
+              <h4 id="hours-label-phone">Phone</h4>
+              <p><a data-phone href="tel:+213368400000">+213 36 84 00 00</a></p>
+            </div>
+            <div class="hours-info-card">
+              <h4 id="hours-label-email">Email</h4>
+              <p><a data-email href="mailto:contact@es-salem.dz">contact@es-salem.dz</a></p>
+            </div>
+            <div class="hours-info-card">
+              <h4 id="hours-label-address">Address</h4>
+              <p data-address>Sétif, Algeria</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="hours-table-wrap">
+            <table class="hours-table">
+              <thead>
+                <tr>
+                  <th id="th-day">Day</th>
+                  <th id="th-opens">Opens</th>
+                  <th id="th-closes">Closes</th>
+                </tr>
+              </thead>
+              <tbody id="hours-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hours-ticker-wrap" style="margin-top:4rem;">
+        <div class="hours-ticker-track" id="ticker-track"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="background:rgba(255,255,255,.05);"></div>
+
+  <!-- ============================================================
+       FAQ
+  ============================================================ -->
+  <section id="faq" class="section">
+    <div class="section-inner">
+      <div class="faq-layout">
+
+        <div class="faq-sticky reveal">
+          <div class="section-label">
+            <span class="section-label-dash"></span>
+            <span class="section-label-text">FAQ</span>
+          </div>
+          <h2 class="section-title" id="faq-title">Common Questions</h2>
+          <p class="section-subtitle" id="faq-description">
+            Everything you need to know before your visit.
+          </p>
+          <a href="#contact" class="btn-primary" style="margin-top:2rem;" id="faq-cta-btn">
+            Still have questions?
+          </a>
+        </div>
+
+        <div class="faq-list reveal" id="faq-list"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section id="contact" class="section">
+    <div class="section-inner">
+
+      <div style="margin-bottom:3.5rem;" class="reveal">
+        <div class="section-label">
+          <span class="section-label-dash"></span>
+          <span class="section-label-text" id="label-contact">Contact</span>
+        </div>
+        <h2 class="section-title" id="contact-title">Book Your Appointment</h2>
+        <p class="section-subtitle" id="contact-subtitle">
+          Reach out by phone, email, or fill in the form and we'll get back to you.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="reveal">
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 8a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z" />
+                </svg>
+              </div>
+              <div>
+                <h4 id="contact-label-phone">Phone</h4>
+                <a data-phone href="tel:+213368400000">+213 36 84 00 00</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div>
+                <h4 id="contact-label-email">Email</h4>
+                <a data-email href="mailto:contact@es-salem.dz">contact@es-salem.dz</a>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <h4 id="contact-label-address">Address</h4>
+                <p data-address>Sétif, Algeria</p>
+              </div>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe id="clinic-map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101509.77!2d5.4!3d36.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f315b9e32fe7c5%3A0x400b05e6b4f6550!2sS%C3%A9tif!5e0!3m2!1sen!2sdz!4v1"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal">
+          <h3 class="form-title" id="form-title">Send us a message</h3>
+          <p class="form-subtitle" id="form-subtitle">We'll confirm your appointment within 24 hours.</p>
+
+          <div class="form-success" id="form-success">Your message has been sent.</div>
+          <div class="form-error" id="form-error">Failed to submit. Please try again.</div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" id="label-fullname">Full Name</label>
+              <input class="form-input" name="name" type="text" required id="ph-fullname" placeholder="Jane Smith" />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <div class="form-label-row">
+                  <label class="form-label" id="label-email">Email</label>
+                  <span class="form-optional" id="label-optional">Optional</span>
+                </div>
+                <input class="form-input" name="email" type="email" id="ph-email" placeholder="jane@example.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" id="label-phone">Phone</label>
+                <input class="form-input" name="phone" type="tel" required placeholder="+213 00 00 00 00" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" id="label-date">Preferred Date</label>
+              <input class="form-input" name="date" type="date" required />
+            </div>
+            <div class="form-group">
+              <div class="form-label-row">
+                <label class="form-label" id="label-message">Message</label>
+                <span class="form-optional" id="label-optional-2">Optional</span>
+              </div>
+              <textarea class="form-input form-textarea" name="message" rows="4" id="ph-message"
+                placeholder="Describe the exam you need..."></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="form-btn">
+              <span class="spinner"></span>
+              <span class="btn-text" id="btn-send">Send Message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          Es-Salem<span class="footer-logo-dot"></span>
+        </div>
+        <p class="footer-desc" id="footer-description">
+          Centre d'imagerie Médicale Es-Salem — advanced diagnostic imaging in Sétif, Algeria.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5 id="footer-nav-title">Navigation</h5>
+        <div class="footer-links" id="footer-nav-links">
+          <a href="#about" data-nav="about">About</a>
+          <a href="#services" data-nav="services">Services</a>
+          <a href="#team" data-nav="team">Team</a>
+          <a href="#hours" data-nav="hours">Hours</a>
+          <a href="#faq" data-nav="faq">FAQ</a>
+          <a href="#contact" data-nav="contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5 id="footer-services-title">Services</h5>
+        <div class="footer-links" id="footer-services"></div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Centre d'imagerie Médicale Es-Salem. <span id="footer-rights">All rights
+          reserved.</span>
+      </p>
+      <a href="/admin/" class="footer-copy" style="opacity:.5; transition:opacity .2s;"
+        onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.5">CMS Admin</a>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    (async function () {
+
+      /* ============================================================
+         TRANSLATIONS (UI strings not in CMS)
+      ============================================================ */
+      const UI = {
+        en: {
+          navAbout: 'About', navServices: 'Services', navTeam: 'Team', navHours: 'Hours', navFaq: 'FAQ', navContact: 'Contact',
+          navCta: 'Book Appointment', menuLabel: 'Menu',
+          labelWhyChoose: 'Why Choose Us', labelOurServices: 'Our Services',
+          labelOurTeam: 'Our Team',
+          teamTitle: 'Meet the Specialists',
+          teamSubtitle: 'Experienced radiologists and medical professionals committed to your health.',
+          labelOpeningHours: 'Opening Hours', labelContact: 'Contact',
+          servicesTitle: 'Medical Imaging Areas',
+          servicesSubtitle: 'Comprehensive diagnostic imaging using state-of-the-art equipment.',
+          hoursTitle: "We're open<br />every day",
+          hoursSubtitle: "No appointment needed for some services. Walk-ins welcome during opening hours.",
+          labelPhone: 'Phone', labelEmail: 'Email', labelAddress: 'Address',
+          thDay: 'Day', thOpens: 'Opens', thCloses: 'Closes',
+          todayPill: 'Today', closedText: 'Closed',
+          faqCta: 'Still have questions?',
+          formTitle: 'Send us a message',
+          formSubtitle: "We'll confirm your appointment within 24 hours.",
+          labelFullname: 'Full Name', labelEmail2: 'Email', labelOptional: 'Optional',
+          labelPhone2: 'Phone', labelDate: 'Preferred Date', labelMessage: 'Message',
+          btnSend: 'Send Message',
+          formSuccess: 'Your message has been sent.',
+          formError: 'Failed to submit. Please try again.',
+          heroCtaBook: 'Book an Appointment', heroCtaServices: 'Our Services',
+          servicesCta: 'Book a Scan', serviceCardLink: 'Book this exam',
+          footerNavTitle: 'Navigation', footerServicesTitle: 'Services',
+          footerRights: 'All rights reserved.',
+        },
+        fr: {
+          navAbout: 'À propos', navServices: 'Services', navTeam: 'Équipe', navHours: 'Horaires', navFaq: 'FAQ', navContact: 'Contact',
+          navCta: 'Prendre RDV', menuLabel: 'Menu',
+          labelWhyChoose: 'Pourquoi nous choisir', labelOurServices: 'Nos Services',
+          labelOurTeam: 'Notre Équipe',
+          teamTitle: 'Rencontrez les Spécialistes',
+          teamSubtitle: 'Des radiologues et professionnels de santé expérimentés, engagés pour votre bien-être.',
+          labelOpeningHours: "Horaires d'ouverture", labelContact: 'Contact',
+          servicesTitle: "Domaines d'imagerie médicale",
+          servicesSubtitle: "Imagerie diagnostique complète avec des équipements de pointe.",
+          hoursTitle: "Ouvert<br />tous les jours",
+          hoursSubtitle: "Pas de rendez-vous nécessaire pour certains examens. Sans RDV pendant les heures d'ouverture.",
+          labelPhone: 'Téléphone', labelEmail: 'E-mail', labelAddress: 'Adresse',
+          thDay: 'Jour', thOpens: 'Ouverture', thCloses: 'Fermeture',
+          todayPill: "Auj.", closedText: 'Fermé',
+          faqCta: 'Encore des questions ?',
+          formTitle: 'Envoyez-nous un message',
+          formSubtitle: 'Nous confirmerons votre rendez-vous sous 24 heures.',
+          labelFullname: 'Nom complet', labelEmail2: 'E-mail', labelOptional: 'Optionnel',
+          labelPhone2: 'Téléphone', labelDate: 'Date souhaitée', labelMessage: 'Message',
+          btnSend: 'Envoyer le message',
+          formSuccess: 'Votre message a bien été envoyé.',
+          formError: "L'envoi a échoué. Veuillez réessayer.",
+          heroCtaBook: 'Prendre Rendez-vous', heroCtaServices: 'Nos Services',
+          servicesCta: 'Réserver un examen', serviceCardLink: 'Réserver cet examen',
+          footerNavTitle: 'Navigation', footerServicesTitle: 'Services',
+          footerRights: 'Tous droits réservés.',
+        },
+        ar: {
+          navAbout: 'من نحن', navServices: 'خدماتنا', navTeam: 'فريقنا', navHours: 'أوقات العمل', navFaq: 'الأسئلة', navContact: 'اتصل بنا',
+          navCta: 'احجز موعداً', menuLabel: 'القائمة',
+          labelWhyChoose: 'لماذا نحن', labelOurServices: 'خدماتنا',
+          labelOurTeam: 'فريقنا',
+          teamTitle: 'تعرف على متخصصينا',
+          teamSubtitle: 'أطباء أشعة ومتخصصون طبيون ذوو خبرة، ملتزمون بصحتك.',
+          labelOpeningHours: 'أوقات العمل', labelContact: 'اتصل بنا',
+          servicesTitle: 'مجالات التصوير الطبي',
+          servicesSubtitle: 'تصوير تشخيصي شامل باستخدام أحدث الأجهزة.',
+          hoursTitle: "نحن مفتوحون<br />كل يوم",
+          hoursSubtitle: "بعض الخدمات لا تتطلب موعداً مسبقاً. أهلاً بك خلال أوقات العمل.",
+          labelPhone: 'الهاتف', labelEmail: 'البريد الإلكتروني', labelAddress: 'العنوان',
+          thDay: 'اليوم', thOpens: 'الفتح', thCloses: 'الإغلاق',
+          todayPill: 'اليوم', closedText: 'مغلق',
+          faqCta: 'لديك المزيد من الأسئلة؟',
+          formTitle: 'أرسل لنا رسالة',
+          formSubtitle: 'سنؤكد موعدك خلال 24 ساعة.',
+          labelFullname: 'الاسم الكامل', labelEmail2: 'البريد الإلكتروني', labelOptional: 'اختياري',
+          labelPhone2: 'الهاتف', labelDate: 'التاريخ المفضل', labelMessage: 'الرسالة',
+          btnSend: 'إرسال الرسالة',
+          formSuccess: 'تم إرسال رسالتك بنجاح.',
+          formError: 'فشل الإرسال. يرجى المحاولة مرة أخرى.',
+          heroCtaBook: 'احجز موعداً', heroCtaServices: 'خدماتنا',
+          servicesCta: 'احجز فحصاً', serviceCardLink: 'احجز هذا الفحص',
+          footerNavTitle: 'التنقل', footerServicesTitle: 'الخدمات',
+          footerRights: 'جميع الحقوق محفوظة.',
+        }
+      };
+
+      /* ============================================================
+         HELPERS
+      ============================================================ */
+      const $ = id => document.getElementById(id);
+
+      async function fetchJSON(url) {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Failed to load ' + url);
+        return res.json();
+      }
+
+      function t(key) {
+        return UI[currentLang][key] || UI.en[key] || '';
+      }
+
+      function pick(obj, field) {
+        return obj[field + '_' + currentLang] || obj[field + '_en'] || obj[field] || '';
+      }
+
+      /* ============================================================
+         LANGUAGE STATE
+      ============================================================ */
+      let currentLang = localStorage.getItem('clinic_lang') || 'en';
+      let cmsData = {};
+
+      /* ============================================================
+         LOAD ALL CMS FILES IN PARALLEL
+      ============================================================ */
+      try {
+        const [settings, hero, about, hours, faq, contact, footer] = await Promise.all([
+          fetchJSON('/content/settings/general.json'),
+          fetchJSON('/content/hero.json'),
+          fetchJSON('/content/about.json'),
+          fetchJSON('/content/hours.json'),
+          fetchJSON('/content/faq.json'),
+          fetchJSON('/content/contact.json'),
+          fetchJSON('/content/footer.json'),
+        ]);
+
+        const servicesFile = await fetchJSON('/content/services.json');
+        const services = (servicesFile.items || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+
+        const teamFile = await fetchJSON('/content/team.json');
+        const team = (teamFile.items || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+
+        cmsData = {settings, hero, about, hours, faq, contact, footer, services, team};
+
+      } catch (err) {
+        console.error('CMS data error:', err);
+        return;
+      }
+
+      /* ============================================================
+         RENDER — called every time language changes
+      ============================================================ */
+      function render() {
+        const {settings, hero, about, hours, faq, contact, footer, services, team} = cmsData;
+        const lang = currentLang;
+        const isAr = lang === 'ar';
+
+        // ── HTML dir / lang ──────────────────────────────────────
+        document.documentElement.lang = lang;
+        document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+
+        // ── NAV links ────────────────────────────────────────────
+        document.querySelectorAll('[data-nav="about"]').forEach(el => el.textContent = t('navAbout'));
+        document.querySelectorAll('[data-nav="services"]').forEach(el => el.textContent = t('navServices'));
+        document.querySelectorAll('[data-nav="team"]').forEach(el => el.textContent = t('navTeam'));
+        document.querySelectorAll('[data-nav="hours"]').forEach(el => el.textContent = t('navHours'));
+        document.querySelectorAll('[data-nav="faq"]').forEach(el => el.textContent = t('navFaq'));
+        document.querySelectorAll('[data-nav="contact"]').forEach(el => el.textContent = t('navContact'));
+        $('nav-cta-btn').textContent = t('navCta');
+        $('menu-label').textContent = t('menuLabel');
+
+        // ── Lang switcher active state ───────────────────────────
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        // ── Settings ─────────────────────────────────────────────
+        document.querySelectorAll('[data-phone]').forEach(el => {
+          el.textContent = settings.phone;
+          if (el.tagName === 'A') el.href = 'tel:' + settings.phone.replace(/\s/g, '');
+        });
+        document.querySelectorAll('[data-email]').forEach(el => {
+          el.textContent = settings.email;
+          if (el.tagName === 'A') el.href = 'mailto:' + settings.email;
+        });
+        document.querySelectorAll('[data-address]').forEach(el => {
+          el.textContent = pick(settings, 'address');
+        });
+        const mapEl = $('clinic-map');
+        if (mapEl && settings.map_url) mapEl.src = settings.map_url;
+
+        // ── Hero ─────────────────────────────────────────────────
+        $('hero-eyebrow').textContent = pick(hero, 'eyebrow');
+        $('hero-title-line1').textContent = pick(hero, 'title_line1');
+        $('hero-title-line2').textContent = pick(hero, 'title_line2');
+        $('hero-description').textContent = pick(hero, 'description');
+        $('hero-cta-book').firstChild.nextSibling.textContent = t('heroCtaBook');
+        $('hero-cta-services').textContent = t('heroCtaServices');
+
+        const heroImg = document.querySelector('.hero-bg img');
+        if (heroImg && hero.hero_image) heroImg.src = hero.hero_image;
+
+        if (hero.stats && hero.stats.length) {
+          hero.stats.forEach((stat, i) => {
+            const valEl = $('stat-' + i + '-value');
+            const lblEl = $('stat-' + i + '-label');
+            if (valEl) valEl.textContent = stat.value;
+            if (lblEl) lblEl.textContent = pick(stat, 'label');
+          });
+        }
+
+        // ── About ────────────────────────────────────────────────
+        $('label-why-choose').textContent = t('labelWhyChoose');
+        $('about-title').textContent = pick(about, 'title');
+        $('about-description').textContent = pick(about, 'description');
+        $('about-badge-num').textContent = about.badge_number;
+        $('about-badge-text').textContent = pick(about, 'badge_text');
+
+        const aboutImg = document.querySelector('.about-img-main img');
+        if (aboutImg && about.image) aboutImg.src = about.image;
+
+        const featureIcons = [
+          '<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>',
+          '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+          '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+          '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>'
+        ];
+
+        const featuresList = $('features-list');
+        if (featuresList && about.features) {
+          featuresList.innerHTML = about.features.map((f, i) => `
+            <div class="feature-item reveal">
+              <div class="feature-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${featureIcons[i % featureIcons.length]}</svg>
+              </div>
+              <div class="feature-body">
+                <h4>${pick(f, 'title')}</h4>
+                <p>${pick(f, 'description')}</p>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        // ── Services ─────────────────────────────────────────────
+        $('label-our-services').textContent = t('labelOurServices');
+        $('services-title').textContent = t('servicesTitle');
+        $('services-subtitle').textContent = t('servicesSubtitle');
+        $('services-cta-btn').textContent = t('servicesCta');
+
+        const servicesGrid = $('services-grid');
+        if (servicesGrid && services.length) {
+          servicesGrid.innerHTML = services.map((s, i) => `
+            <div class="service-card reveal">
+              <div class="service-card-thumb">
+                <img src="${s.image}" alt="${pick(s, 'title')}" loading="lazy"
+                     onerror="this.parentElement.style.background='var(--paper-2)'; this.style.display='none'"/>
+                <div class="service-card-thumb-overlay"></div>
+              </div>
+              <div class="service-card-body">
+                <div class="service-card-num">0${i + 1}</div>
+                <h3 class="service-card-title">${pick(s, 'title')}</h3>
+                <p class="service-card-desc">${pick(s, 'description')}</p>
+                <a href="#contact" class="service-card-link">
+                  ${t('serviceCardLink')}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        const footerServices = $('footer-services');
+        if (footerServices && services.length) {
+          footerServices.innerHTML = services.map(s =>
+            `<a href="#services">${pick(s, 'title')}</a>`
+          ).join('');
+        }
+
+        const tickerTrack = $('ticker-track');
+        if (tickerTrack && services.length) {
+          const doubled = [...services, ...services];
+          tickerTrack.innerHTML = doubled.map(s => `
+            <span class="ticker-service">
+              <span class="ticker-service-dot"></span>
+              ${pick(s, 'title')}
+            </span>
+          `).join('');
+        }
+
+        // ── Team ─────────────────────────────────────────────────
+        $('label-our-team').textContent = t('labelOurTeam');
+        $('team-title').textContent = t('teamTitle');
+        $('team-subtitle').textContent = t('teamSubtitle');
+
+        const teamGrid = $('team-grid');
+        if (teamGrid) {
+          if (team && team.length) {
+            teamGrid.innerHTML = team.map(member => {
+              const name = member.name || '';
+              const role = pick(member, 'role');
+              const bio = pick(member, 'bio');
+              const photo = member.photo || '';
+
+              const photoHTML = photo
+                ? `<img src="${photo}" alt="${name}" loading="lazy"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />`
+                : '';
+
+              return `
+                <div class="team-card reveal">
+                  <div class="team-card-photo">
+                    ${photoHTML}
+                    <div class="team-card-photo-placeholder" ${photo ? 'style="display:none"' : ''}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </div>
+                    <div class="team-card-role-pill">${role}</div>
+                  </div>
+                  <div class="team-card-body">
+                    <h3 class="team-card-name">${name}</h3>
+                    ${bio ? `<p class="team-card-bio">${bio}</p>` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('');
+          } else {
+            // Hide the section if no team members
+            const teamSection = $('team');
+            if (teamSection) teamSection.style.display = 'none';
+            const teamDivider = teamSection?.previousElementSibling;
+            if (teamDivider?.classList.contains('divider')) teamDivider.style.display = 'none';
+          }
+        }
+
+        // ── Hours ────────────────────────────────────────────────
+        $('label-opening-hours').textContent = t('labelOpeningHours');
+        $('hours-title').innerHTML = t('hoursTitle');
+        $('hours-subtitle').textContent = t('hoursSubtitle');
+        $('hours-label-phone').textContent = t('labelPhone');
+        $('hours-label-email').textContent = t('labelEmail');
+        $('hours-label-address').textContent = t('labelAddress');
+        $('th-day').textContent = t('thDay');
+        $('th-opens').textContent = t('thOpens');
+        $('th-closes').textContent = t('thCloses');
+
+        const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const todayEn = dayNames[new Date().getDay()];
+        const tbody = $('hours-tbody');
+        if (tbody && hours.schedule) {
+          tbody.innerHTML = hours.schedule.map(row => {
+            const isToday = row.day_en === todayEn;
+            const dayLabel = pick(row, 'day');
+            const openText = row.closed ? '—' : row.open;
+            const closeText = row.closed ? t('closedText') : row.close;
+            return `<tr class="${isToday ? 'today' : ''}">
+              <td>${dayLabel}${isToday ? `<span class="today-pill">${t('todayPill')}</span>` : ''}</td>
+              <td>${openText}</td>
+              <td>${closeText}</td>
+            </tr>`;
+          }).join('');
+        }
+
+        // ── FAQ ──────────────────────────────────────────────────
+        $('faq-title').textContent = pick(faq, 'title');
+        $('faq-description').textContent = pick(faq, 'description');
+        $('faq-cta-btn').textContent = t('faqCta');
+
+        const faqList = $('faq-list');
+        if (faqList && faq.questions) {
+          faqList.innerHTML = faq.questions.map(item => `
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="faq-question-text">${pick(item, 'q')}</span>
+                <span class="faq-icon">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p class="faq-answer-text">${pick(item, 'a')}</p>
+              </div>
+            </div>
+          `).join('');
+
+          faqList.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+              const isOpen = item.classList.contains('open');
+              faqList.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+              if (!isOpen) item.classList.add('open');
+            });
+          });
+        }
+
+        // ── Contact ──────────────────────────────────────────────
+        $('label-contact').textContent = t('labelContact');
+        $('contact-title').textContent = pick(contact, 'title');
+        $('contact-subtitle').textContent = pick(contact, 'subtitle');
+        $('contact-label-phone').textContent = t('labelPhone');
+        $('contact-label-email').textContent = t('labelEmail');
+        $('contact-label-address').textContent = t('labelAddress');
+        $('form-title').textContent = t('formTitle');
+        $('form-subtitle').textContent = t('formSubtitle');
+        $('label-fullname').textContent = t('labelFullname');
+        $('label-email').textContent = t('labelEmail2');
+        $('label-optional').textContent = t('labelOptional');
+        $('label-optional-2').textContent = t('labelOptional');
+        $('label-phone').textContent = t('labelPhone2');
+        $('label-date').textContent = t('labelDate');
+        $('label-message').textContent = t('labelMessage');
+        $('btn-send').textContent = t('btnSend');
+        $('form-success').textContent = t('formSuccess');
+        $('form-error').textContent = t('formError');
+
+        const formEl = $('contact-form');
+        if (formEl && contact.form_action) formEl.action = contact.form_action;
+
+        // ── Footer ───────────────────────────────────────────────
+        $('footer-description').textContent = pick(footer, 'description');
+        $('footer-nav-title').textContent = t('footerNavTitle');
+        $('footer-services-title').textContent = t('footerServicesTitle');
+        $('footer-rights').textContent = t('footerRights');
+
+        // Re-observe reveal elements (new ones from innerHTML)
+        observeReveal();
+      }
+
+      /* ============================================================
+         LANGUAGE SWITCHER
+      ============================================================ */
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentLang = btn.dataset.lang;
+          localStorage.setItem('clinic_lang', currentLang);
+          render();
+        });
+      });
+
+      /* ============================================================
+         YEAR
+      ============================================================ */
+      $('year').textContent = new Date().getFullYear();
+
+      /* ============================================================
+         NAVBAR SCROLL
+      ============================================================ */
+      const navbar = $('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      }, {passive: true});
+
+      /* ============================================================
+         ACTIVE NAV LINK
+      ============================================================ */
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('#nav-links a');
+      const activeObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            navLinks.forEach(a => {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+            });
+          }
+        });
+      }, {rootMargin: '-40% 0px -55% 0px'});
+      sections.forEach(s => activeObs.observe(s));
+
+      /* ============================================================
+         MOBILE DRAWER
+      ============================================================ */
+      const toggle = $('mobile-toggle');
+      const drawer = $('mobile-drawer');
+      const drawerClose = $('mobile-drawer-close');
+      toggle.addEventListener('click', () => drawer.classList.toggle('open'));
+      drawerClose.addEventListener('click', () => drawer.classList.remove('open'));
+      drawer.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => drawer.classList.remove('open'));
+      });
+
+      /* ============================================================
+         REVEAL ON SCROLL
+      ============================================================ */
+      const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObs.unobserve(e.target);
+          }
+        });
+      }, {rootMargin: '0px 0px -60px 0px'});
+
+      function observeReveal() {
+        document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObs.observe(el));
+      }
+
+      /* ============================================================
+         CONTACT FORM SUBMIT
+      ============================================================ */
+      $('contact-form')?.addEventListener('submit', async e => {
+        e.preventDefault();
+        const btn = $('form-btn');
+        const success = $('form-success');
+        const error = $('form-error');
+        success.classList.remove('show');
+        error.classList.remove('show');
+        btn.classList.add('loading');
+        btn.disabled = true;
+
+        try {
+          const action = cmsData.contact?.form_action;
+          if (action) {
+            await fetch(action, {
+              method: 'POST',
+              body: new FormData(e.target),
+              headers: {Accept: 'application/json'}
+            });
+          } else {
+            await new Promise(r => setTimeout(r, 900));
+          }
+          success.classList.add('show');
+          e.target.reset();
+        } catch {
+          error.classList.add('show');
+        } finally {
+          btn.classList.remove('loading');
+          btn.disabled = false;
+        }
+      });
+
+      /* ============================================================
+         INITIAL RENDER
+      ============================================================ */
+      render();
+      setTimeout(observeReveal, 150);
+
+    })();
+  </script>
+
+</body>
+
+</html>

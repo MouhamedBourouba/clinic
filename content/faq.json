@@ -1,0 +1,50 @@
+{
+  "title_en": "Common Questions",
+  "title_fr": "Questions Fréquentes",
+  "title_ar": "الأسئلة الشائعة",
+  "description_en": "Everything you need to know before your visit.",
+  "description_fr": "Tout ce que vous devez savoir avant votre visite.",
+  "description_ar": "كل ما تحتاج معرفته قبل زيارتك.",
+  "questions": [
+    {
+      "q_en": "Do I need a doctor's referral?",
+      "q_fr": "Ai-je besoin d'une ordonnance médicale ?",
+      "q_ar": "هل أحتاج إلى إحالة من طبيب؟",
+      "a_en": "For most imaging exams, a referral from your physician is recommended but not always required. Please call us to confirm for your specific exam type.",
+      "a_fr": "Pour la plupart des examens d'imagerie, une ordonnance est recommandée mais pas toujours obligatoire. Appelez-nous pour confirmer selon votre type d'examen.",
+      "a_ar": "لمعظم فحوصات التصوير، يُنصح بوجود إحالة طبية لكنها ليست دائماً شرطاً. اتصل بنا للتأكيد حسب نوع فحصك."
+    },
+    {
+      "q_en": "How long does an MRI take?",
+      "q_fr": "Combien de temps dure une IRM ?",
+      "q_ar": "كم يستغرق فحص الرنين المغناطيسي؟",
+      "a_en": "A standard MRI scan takes between 30 and 60 minutes depending on the body part. You will receive full instructions beforehand.",
+      "a_fr": "Une IRM standard dure entre 30 et 60 minutes selon la région du corps. Vous recevrez toutes les instructions à l'avance.",
+      "a_ar": "يستغرق فحص الرنين المغناطيسي عادةً بين 30 و60 دقيقة حسب منطقة الجسم. ستتلقى تعليمات كاملة مسبقاً."
+    },
+    {
+      "q_en": "Can I eat before my scan?",
+      "q_fr": "Puis-je manger avant mon examen ?",
+      "q_ar": "هل يمكنني الأكل قبل الفحص؟",
+      "a_en": "This depends on the type of exam. For abdominal ultrasound you should fast for 4 to 6 hours. We will send specific instructions with your booking confirmation.",
+      "a_fr": "Cela dépend du type d'examen. Pour une échographie abdominale, il faut être à jeun 4 à 6 heures. Des instructions précises vous seront envoyées avec votre confirmation.",
+      "a_ar": "يعتمد ذلك على نوع الفحص. للإيكوغرافيا البطنية يجب الصيام من 4 إلى 6 ساعات. ستتلقى تعليمات خاصة مع تأكيد حجزك."
+    },
+    {
+      "q_en": "When will I receive my results?",
+      "q_fr": "Quand recevrai-je mes résultats ?",
+      "q_ar": "متى أستلم نتائجي؟",
+      "a_en": "Most results are ready the same day or within 24 hours. Urgent cases are prioritised and your physician is notified immediately.",
+      "a_fr": "La plupart des résultats sont prêts le jour même ou sous 24 heures. Les cas urgents sont traités en priorité et votre médecin est informé immédiatement.",
+      "a_ar": "معظم النتائج جاهزة في نفس اليوم أو خلال 24 ساعة. تُعطى الأولوية للحالات العاجلة ويُخطر طبيبك فوراً."
+    },
+    {
+      "q_en": "Is the centre accessible to people with disabilities?",
+      "q_fr": "Le centre est-il accessible aux personnes à mobilité réduite ?",
+      "q_ar": "هل المركز مهيأ لذوي الاحتياجات الخاصة؟",
+      "a_en": "Yes. Our centre is fully accessible with a ground-floor entrance, lift access and dedicated parking spaces.",
+      "a_fr": "Oui. Notre centre est entièrement accessible avec une entrée de plain-pied, un ascenseur et des places de stationnement dédiées.",
+      "a_ar": "نعم. مركزنا مجهز بالكامل بمدخل أرضي ومصعد ومواقف سيارات مخصصة."
+    }
+  ]
+}
