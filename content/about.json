@@ -1,15 +1,14 @@
 {
-  "title_en": "Trusted by thousands of patients across Sétif",
-  "title_fr": "La confiance de milliers de patients à Sétif",
-  "title_ar": "ثقة آلاف المرضى في سطيف",
+  "badge_text_fr": "Fondé à Sétif",
+  "badge_number": "2009",
+  "badge_text_ar": "تأسس في سطيف",
   "description_en": "We combine the latest imaging technology with a team of experienced specialists dedicated to accurate diagnostics and patient comfort.",
   "description_fr": "Nous associons les dernières technologies d'imagerie à une équipe de spécialistes expérimentés, engagés pour un diagnostic précis et le confort du patient.",
+  "title_en": "Trusted by thousands of patients across Sétif",
+  "title_fr": "La confiance de milliers de patients à Sétif",
   "description_ar": "نجمع بين أحدث تقنيات التصوير وفريق من المختصين ذوي الخبرة، ملتزمين بدقة التشخيص وراحة المريض.",
-  "image": "/public/about_image.jpg",
-  "badge_number": "2009",
-  "badge_text_en": "Est. in Sétif",
-  "badge_text_fr": "Fondé à Sétif",
-  "badge_text_ar": "تأسس في سطيف",
+  "title_ar": "ثقة آلاف المرضى في سطيف",
+  "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGqyiWyiqjCvtU0pSJi8PHd0tBTCPIoVr4HklLpjCUE5H5QLfAg4TlaroHUdjVsb8b9APYqZO07ym0A_--miS0IdS9Gegt6hSL4Lpt9uAdnvkG25P1jfMQmaCu72UaBJNj7CKqL=w426-h240-k-no",
   "features": [
     {
       "title_en": "Advanced Equipment",
@@ -43,5 +42,6 @@
       "description_fr": "Un environnement calme et accueillant, conçu pour vous.",
       "description_ar": "بيئة هادئة وترحيبية مصممة حول احتياجاتك."
     }
-  ]
+  ],
+  "badge_text_en": "Est. in Sétif"
 }
