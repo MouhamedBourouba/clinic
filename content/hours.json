@@ -1,11 +1,60 @@
 {
   "schedule": [
-    { "day_en": "Sunday",    "day_fr": "Dimanche", "day_ar": "الأحد",     "open": "08:00", "close": "20:00", "closed": false },
-    { "day_en": "Monday",    "day_fr": "Lundi",    "day_ar": "الاثنين",   "open": "08:00", "close": "20:00", "closed": false },
-    { "day_en": "Tuesday",   "day_fr": "Mardi",    "day_ar": "الثلاثاء",  "open": "08:00", "close": "20:00", "closed": false },
-    { "day_en": "Wednesday", "day_fr": "Mercredi", "day_ar": "الأربعاء",  "open": "08:00", "close": "20:00", "closed": false },
-    { "day_en": "Thursday",  "day_fr": "Jeudi",    "day_ar": "الخميس",    "open": "08:00", "close": "20:00", "closed": false },
-    { "day_en": "Friday",    "day_fr": "Vendredi", "day_ar": "الجمعة",    "open": "14:00", "close": "20:00", "closed": false },
-    { "day_en": "Saturday",  "day_fr": "Samedi",   "day_ar": "السبت",     "open": "08:00", "close": "20:00", "closed": false }
+    {
+      "day_en": "Sunday",
+      "day_fr": "Dimanche",
+      "day_ar": "الأحد",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": false
+    },
+    {
+      "day_en": "Monday",
+      "day_fr": "Lundi",
+      "day_ar": "الاثنين",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": false
+    },
+    {
+      "day_en": "Tuesday",
+      "day_fr": "Mardi",
+      "day_ar": "الثلاثاء",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": true
+    },
+    {
+      "day_en": "Wednesday",
+      "day_fr": "Mercredi",
+      "day_ar": "الأربعاء",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": false
+    },
+    {
+      "day_en": "Thursday",
+      "day_fr": "Jeudi",
+      "day_ar": "الخميس",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": false
+    },
+    {
+      "day_en": "Friday",
+      "day_fr": "Vendredi",
+      "day_ar": "الجمعة",
+      "open": "14:00",
+      "close": "20:00",
+      "closed": false
+    },
+    {
+      "day_en": "Saturday",
+      "day_fr": "Samedi",
+      "day_ar": "السبت",
+      "open": "08:00",
+      "close": "20:00",
+      "closed": false
+    }
   ]
 }
