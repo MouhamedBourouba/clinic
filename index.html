@@ -308,6 +308,7 @@
       display: flex;
       align-items: center;
       gap: .5rem;
+      flex-shrink: 0;
     }
 
     .navbar-logo-dot {
@@ -371,8 +372,15 @@
       gap: .5rem;
     }
 
+    /* Hide desktop lang switcher on mobile — it lives in the drawer */
+    @media (max-width: 1023px) {
+      #lang-switcher-desktop {
+        display: none;
+      }
+    }
+
     .nav-cta {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: .375rem;
       background: var(--teal);
@@ -383,6 +391,7 @@
       font-weight: 500;
       transition: background .2s, transform .1s;
       letter-spacing: .01em;
+      white-space: nowrap;
     }
 
     .nav-cta:hover {
@@ -393,17 +402,31 @@
       transform: scale(.97);
     }
 
+    /* Shorter CTA label on small screens */
+    @media (max-width: 479px) {
+      .nav-cta {
+        padding: .625rem 1rem;
+        font-size: .8125rem;
+      }
+    }
+
+    /* Icon-only hamburger button */
     .mobile-toggle {
       display: flex;
       align-items: center;
-      gap: .375rem;
-      padding: .5rem .875rem;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      flex-shrink: 0;
       border-radius: var(--r-full);
       background: var(--paper-2);
       border: 1px solid var(--paper-3);
-      font-size: .875rem;
-      font-weight: 500;
       color: var(--ink);
+      transition: background .2s;
+    }
+
+    .mobile-toggle:hover {
+      background: var(--paper-3);
     }
 
     @media (min-width: 1024px) {
@@ -1079,7 +1102,6 @@
       transform: scale(1.04);
     }
 
-    /* Subtle gradient at the bottom of photo */
     .team-card-photo::after {
       content: '';
       position: absolute;
@@ -1091,7 +1113,6 @@
       pointer-events: none;
     }
 
-    /* Role pill overlaid on photo */
     .team-card-role-pill {
       position: absolute;
       bottom: 1rem;
@@ -1156,7 +1177,6 @@
       overflow: hidden;
     }
 
-    /* Gold accent line at top */
     .team-card::before {
       content: '';
       display: block;
@@ -1170,7 +1190,6 @@
       opacity: 1;
     }
 
-    /* Placeholder when no photo */
     .team-card-photo-placeholder {
       width: 100%;
       height: 100%;
@@ -1857,19 +1876,20 @@
       </div>
 
       <div class="navbar-right">
+        <!-- Hidden on mobile; visible on desktop (≥1024px) -->
         <div class="lang-switcher" id="lang-switcher-desktop">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="fr">FR</button>
           <button class="lang-btn" data-lang="ar">AR</button>
         </div>
         <a href="#contact" class="nav-cta" id="nav-cta-btn">Book Appointment</a>
+        <!-- Icon-only hamburger on mobile -->
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <line x1="4" x2="20" y1="7" y2="7" />
             <line x1="4" x2="20" y1="17" y2="17" />
           </svg>
-          <span id="menu-label">Menu</span>
         </button>
       </div>
     </nav>
@@ -2294,7 +2314,7 @@
       const UI = {
         en: {
           navAbout: 'About', navServices: 'Services', navTeam: 'Team', navHours: 'Hours', navFaq: 'FAQ', navContact: 'Contact',
-          navCta: 'Book Appointment', menuLabel: 'Menu',
+          navCta: 'Book Appointment', navCtaShort: 'Book',
           labelWhyChoose: 'Why Choose Us', labelOurServices: 'Our Services',
           labelOurTeam: 'Our Team',
           teamTitle: 'Meet the Specialists',
@@ -2322,7 +2342,7 @@
         },
         fr: {
           navAbout: 'À propos', navServices: 'Services', navTeam: 'Équipe', navHours: 'Horaires', navFaq: 'FAQ', navContact: 'Contact',
-          navCta: 'Prendre RDV', menuLabel: 'Menu',
+          navCta: 'Prendre RDV', navCtaShort: 'RDV',
           labelWhyChoose: 'Pourquoi nous choisir', labelOurServices: 'Nos Services',
           labelOurTeam: 'Notre Équipe',
           teamTitle: 'Rencontrez les Spécialistes',
@@ -2350,7 +2370,7 @@
         },
         ar: {
           navAbout: 'من نحن', navServices: 'خدماتنا', navTeam: 'فريقنا', navHours: 'أوقات العمل', navFaq: 'الأسئلة', navContact: 'اتصل بنا',
-          navCta: 'احجز موعداً', menuLabel: 'القائمة',
+          navCta: 'احجز موعداً', navCtaShort: 'حجز',
           labelWhyChoose: 'لماذا نحن', labelOurServices: 'خدماتنا',
           labelOurTeam: 'فريقنا',
           teamTitle: 'تعرف على متخصصينا',
@@ -2437,6 +2457,7 @@
         const {settings, hero, about, hours, faq, contact, footer, services, team} = cmsData;
         const lang = currentLang;
         const isAr = lang === 'ar';
+        const isMobile = window.innerWidth < 480;
 
         // ── HTML dir / lang ──────────────────────────────────────
         document.documentElement.lang = lang;
@@ -2449,8 +2470,10 @@
         document.querySelectorAll('[data-nav="hours"]').forEach(el => el.textContent = t('navHours'));
         document.querySelectorAll('[data-nav="faq"]').forEach(el => el.textContent = t('navFaq'));
         document.querySelectorAll('[data-nav="contact"]').forEach(el => el.textContent = t('navContact'));
-        $('nav-cta-btn').textContent = t('navCta');
-        $('menu-label').textContent = t('menuLabel');
+
+        // Show short CTA label on small screens
+        const ctaBtn = $('nav-cta-btn');
+        if (ctaBtn) ctaBtn.textContent = isMobile ? t('navCtaShort') : t('navCta');
 
         // ── Lang switcher active state ───────────────────────────
         document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -2609,7 +2632,6 @@
               `;
             }).join('');
           } else {
-            // Hide the section if no team members
             const teamSection = $('team');
             if (teamSection) teamSection.style.display = 'none';
             const teamDivider = teamSection?.previousElementSibling;
@@ -2759,6 +2781,14 @@
       drawer.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => drawer.classList.remove('open'));
       });
+
+      /* ============================================================
+         RESIZE — update CTA label if viewport changes
+      ============================================================ */
+      window.addEventListener('resize', () => {
+        const ctaBtn = $('nav-cta-btn');
+        if (ctaBtn) ctaBtn.textContent = window.innerWidth < 480 ? t('navCtaShort') : t('navCta');
+      }, {passive: true});
 
       /* ============================================================
          REVEAL ON SCROLL
