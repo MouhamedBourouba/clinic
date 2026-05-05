@@ -472,7 +472,7 @@
        HERO
     ============================================================ */
     #hero {
-      min-height: 100svh;
+      height: 100svh;
       display: grid;
       grid-template-rows: 1fr auto;
       position: relative;
@@ -524,7 +524,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      min-height: calc(100svh - 8rem);
+      min-height: 0;
     }
 
     [dir="rtl"] .hero-content {
@@ -1390,8 +1390,8 @@
     }
 
     .faq-sticky {
-      < !-- position: sticky;
-      -->top: 8rem;
+      position: sticky;
+      top: 8rem;
       height: fit-content;
     }
 
@@ -1903,7 +1903,8 @@
   ============================================================ -->
   <section id="hero">
     <div class="hero-bg">
-      <img src="/public/uploads/hero_image.avif" alt="Es-Salem Medical Imaging Centre" fetchpriority="high" />
+      <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1600&q=80"
+        alt="Es-Salem Medical Imaging Centre" fetchpriority="high" />
       <div class="hero-overlay"></div>
     </div>
 
@@ -1961,7 +1962,8 @@
 
         <div class="about-visual reveal">
           <div class="about-img-main">
-            <img src="/public/about_image.jpg" alt="Medical Imaging Technology" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80"
+              alt="Medical Imaging Technology" loading="lazy" />
           </div>
           <div class="about-badge">
             <div class="about-badge-num" id="about-badge-num">2009</div>
@@ -2188,7 +2190,7 @@
           </div>
           <div class="map-wrap">
             <iframe id="clinic-map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101509.77!2d5.4!3d36.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f315b9e32fe7c5%3A0x400b05e6b4f6550!2sS%C3%A9tif!5e0!3m2!1sen!2sdz!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3219.8969028326997!2d5.397422476347123!3d36.19338910166939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f31585ce80df39%3A0x560047a3fb657b09!2sCentre%20d'imagerie%20m%C3%A9dicale%20Es-salem.!5e0!3m2!1sen!2sdz!4v1777962417989!5m2!1sen!2sdz"
               allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
@@ -2278,8 +2280,6 @@
         &copy; <span id="year"></span> Centre d'imagerie Médicale Es-Salem. <span id="footer-rights">All rights
           reserved.</span>
       </p>
-      <a href="/admin/" class="footer-copy" style="opacity:.5; transition:opacity .2s;"
-        onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.5">CMS Admin</a>
     </div>
   </footer>
 
